@@ -5,6 +5,40 @@ abstract class TimetableEvent extends Equatable {
   List<Object?> get props => [];
 }
 
-class LoadTimetableEvent extends TimetableEvent {}
+class LoadTimetableEvent extends TimetableEvent {
+  final bool isTeacher;
+  final String? teacherName;
+  final String? batch;
+  final String? program;
+  final String? sectionNumber;
 
-class RefreshTimetableEvent extends TimetableEvent {}
+  LoadTimetableEvent({
+    required this.isTeacher,
+    this.teacherName,
+    this.batch,
+    this.program,
+    this.sectionNumber,
+  });
+
+  @override
+  List<Object?> get props => [isTeacher, teacherName ?? '', batch ?? '', program ?? '', sectionNumber ?? ''];
+}
+
+class RefreshTimetableEvent extends TimetableEvent {
+  final bool isTeacher;
+  final String? teacherName;
+  final String? batch;
+  final String? program;
+  final String? sectionNumber;
+
+  RefreshTimetableEvent({
+    required this.isTeacher,
+    this.teacherName,
+    this.batch,
+    this.program,
+    this.sectionNumber,
+  });
+
+  @override
+  List<Object?> get props => [isTeacher, teacherName ?? '', batch ?? '', program ?? '', sectionNumber ?? ''];
+}

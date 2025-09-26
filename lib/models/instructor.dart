@@ -13,15 +13,15 @@ class Instructor {
 
   factory Instructor.fromMap(Map<String, dynamic> map) {
     return Instructor(
-      id: map['id'],
-      name: map['name'],
+      id: map['id'] ?? 0,
+      name: map['name'] ?? '',
     );
   }
 
   factory Instructor.fromApi(Map<String, dynamic> json) {
     return Instructor(
-      id: json['id'],
-      name: json['name'],
+      id: json['id'] ?? 0,
+      name: json['name'] ?? '',
     );
   }
 }

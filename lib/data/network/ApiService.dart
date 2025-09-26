@@ -20,7 +20,7 @@ class ApiService {
    print(responseJson);
    List<dynamic> data = responseJson;
    List<TimetableEntry> entries =
-   data.map((e) => TimetableEntry.fromJson(e)).toList();
+   data.map((e) => TimetableEntry.fromApi(e)).toList();
 
    print("✅ Parsed ${entries.length} timetable entries from API");
      print(entries.toString());

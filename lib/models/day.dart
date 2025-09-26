@@ -13,15 +13,15 @@ class Day {
 
   factory Day.fromMap(Map<String, dynamic> map) {
     return Day(
-      id: map['id'],
-      name: map['name'],
+      id: map['id'] ?? 0,
+      name: map['name'] ?? '',
     );
   }
 
   factory Day.fromApi(Map<String, dynamic> json) {
     return Day(
-      id: json['id'],
-      name: json['name'],
+      id: json['id'] ?? 0,
+      name: json['name'] ?? '',
     );
   }
 }

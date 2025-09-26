@@ -5,11 +5,11 @@ class TimetableQueries {
   static Future<List<Map<String, dynamic>>> searchTeachers(String query) async {
     final db = await DBHelper.database; // ✅ use singleton
     return await db.rawQuery('''
-      SELECT DISTINCT i.id, i.name
-      FROM instructor i
-      WHERE i.name LIKE ?
-      ORDER BY i.name
-    ''', ['$query%']);
+  SELECT DISTINCT i.id, i.name
+  FROM instructor i
+  WHERE i.name LIKE ?
+  ORDER BY i.name
+''', ['%$query%']);
   }
 
   /// 👨‍🏫 Get full week timetable of a teacher

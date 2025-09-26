@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:studentapp/bloc/search/search_bloc.dart';
 import 'package:studentapp/data/network/ApiService.dart';
+import 'package:studentapp/screens/search_screen.dart';
 import 'package:studentapp/screens/timetable_screen.dart';
 import 'package:studentapp/utils/TimetableQueries.dart';
+
+import 'bloc/timetable/timetable_bloc.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -37,12 +42,21 @@ void main() async {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
-        body: TimetableScreen(),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider<SearchBloc>(
+          create: (_) => SearchBloc(),
+        ),
+        BlocProvider<TimetableBloc>(
+          create: (_) => TimetableBloc(),
+        ),
+      ],
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        title: 'Student App',
+        home: const SearchScreen(),
       ),
     );
   }

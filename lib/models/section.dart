@@ -22,19 +22,19 @@ class Section {
 
   factory Section.fromMap(Map<String, dynamic> map) {
     return Section(
-      id: map['id'],
-      batch: map['batch'],
-      program: map['program'],
-      sectionNumber: map['sectionNumber'],
+      id: map['id'] ?? 0,
+      batch: map['batch'] ?? '',
+      program: map['program'] ?? '',
+      sectionNumber: map['sectionNumber'] ?? '',
     );
   }
 
   factory Section.fromApi(Map<String, dynamic> json) {
     return Section(
-      id: json['id'],
-      batch: json['batch'],
-      program: json['program'],
-      sectionNumber: json['sectionNumber'],
+      id: json['id'] ?? 0,
+      batch: json['batch'] ?? '',
+      program: json['program'] ?? '',
+      sectionNumber: json['sectionNumber'] ?? '',
     );
   }
 }
